@@ -3806,7 +3806,7 @@ export const COMUNI = [
   ['D976', 'RC', 'LOCRI'],
   ['E646', 'NU', 'LOCULI'],
   ['E647', 'NU', 'LODE\''],
-  ['E648', 'LO', 'LODI'],
+  ['E648', 'LO', 'LODIIA'],
   ['E651', 'LO', 'LODI VECCHIO'],
   ['E649', 'NU', 'LODINE'],
   ['E652', 'BS', 'LODRINO'],
