@@ -31,15 +31,14 @@ export class Comune {
     return new Comune(name, prov)
   }
   static GetByCC (cc) {
-    let result
+    var result = [];
     for (const item of COMUNI) {
       if (item[0] === cc) {
-        result = item
-        break
-      }
+        result.push(new Comune(item[2], item[1], item[0], false));
+      }     
     }
-    if (result !== undefined) {
-      return new Comune(result[2], result[1], result[0], false)
+    if (result.length) {
+      return result;
     }
     throw new Error(`Comune with cc ${cc} doesn't exist`)
   }
