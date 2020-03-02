@@ -5,7 +5,7 @@ $rows = json_decode($f);
 $values = [];
 foreach($rows->return->results as $i=>$r){
   $v = explode(' | ',$r->description);
-  $values[$v[0]."--".$v[1]] = '["'.$r->tax_code.'", "'.$v[1].'","'.$v[0].'"]';  
+  $values[$v[0]."  ".$v[1]] = '["'.$r->tax_code.'", "'.$v[1].'","'.$v[0].'"]';  
 }
 ksort($values);
 $values = array_values($values);
