@@ -86,28 +86,28 @@ export class Comune {
     let right = COMUNI.length - 1
     let result
     while (left <= right) {
-      const middle = Math.floor((left + right) / 2)
-      const currentItem = COMUNI[middle]
-      if (query === currentItem[2]) {
-        if (prov === currentItem[1]) {
-          result = currentItem
-        } else if (middle > 0 && COMUNI[middle - 1][2] === query && prov === COMUNI[middle - 1][1]) {
-          result = COMUNI[middle - 1]
-        } else if (middle < COMUNI.length - 1 && COMUNI[middle + 1][2] === query && prov === COMUNI[middle + 1][1]) {
-          result = COMUNI[middle + 1]
-        }
-        break
-      } else if (query < currentItem[2]) {
-        right = middle - 1
-      } else {
-        left = middle + 1
-      }
-    }
-    if (result !== undefined) {
-      return { cc: result[0], prov: result[1], nome: result[2] }
-    } else {
-      throw new Error(`Comune with name of ${nome} and prov ${prov} doesn't exists`)
-    }
+	  const middle = Math.floor((left + right) / 2)
+	  const currentItem = COMUNI[middle]
+	  if (query === currentItem[2]) {
+	    if (prov === currentItem[1]) {
+	      result = currentItem
+	      break;
+	    } else if (prov < currentItem[1]) {
+	      right = middle - 1
+	    } else {
+	      left = middle + 1
+	    }
+	  } else if (query < currentItem[2]) {
+	    right = middle - 1
+	  } else {
+	    left = middle + 1
+	  }
+	}
+	if (result !== undefined) {
+	  return {cc: result[0], prov: result[1], nome: result[2]}
+	} else {
+	  throw new Error(`Comune with name of ${query} and prov ${prov} doesn't exists`)
+	}
   }
 
   toJSON () {
